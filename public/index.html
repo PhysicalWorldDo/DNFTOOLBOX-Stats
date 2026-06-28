@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DNF 工具箱下载统计</title>
+    <link rel="icon" href="./assets/toolbox-icon.ico" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <img class="brand-icon" src="./assets/toolbox-icon.ico" alt="" />
+          <div>
+            <h1>DNF 工具箱下载统计</h1>
+            <p id="lastUpdated">最后更新: --</p>
+          </div>
+        </div>
+        <a class="source-link" href="https://github.com/PhysicalWorldDo/DNFTOOLBOX-Registry" target="_blank" rel="noreferrer">
+          Registry
+        </a>
+      </header>
+
+      <section class="metric-grid" aria-label="总览">
+        <article class="metric">
+          <span>总下载次数</span>
+          <strong id="totalDownloads">0</strong>
+        </article>
+        <article class="metric">
+          <span>今日新增</span>
+          <strong id="dailyDownloads">0</strong>
+        </article>
+        <article class="metric">
+          <span>工具数量</span>
+          <strong id="toolCount">0</strong>
+        </article>
+        <article class="metric issue">
+          <span>统计异常</span>
+          <strong id="issueCount">0</strong>
+        </article>
+      </section>
+
+      <section class="rank-grid" aria-label="排行榜">
+        <article class="panel">
+          <div class="panel-heading">
+            <h2>今日增长 Top 5</h2>
+          </div>
+          <ol id="topDaily" class="rank-list"></ol>
+        </article>
+        <article class="panel">
+          <div class="panel-heading">
+            <h2>下载总量 Top 5</h2>
+          </div>
+          <ol id="topTotal" class="rank-list"></ol>
+        </article>
+      </section>
+
+      <section class="filters" aria-label="筛选">
+        <label>
+          <span>搜索</span>
+          <input id="searchInput" type="search" placeholder="工具名 / ID / 仓库" />
+        </label>
+        <label>
+          <span>分类</span>
+          <select id="categoryFilter"></select>
+        </label>
+        <label>
+          <span>状态</span>
+          <select id="statusFilter">
+            <option value="all">全部</option>
+            <option value="ok">正常</option>
+            <option value="error">失败</option>
+            <option value="skipped">跳过</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="table-panel" aria-label="下载统计表格">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>工具</th>
+                <th>分类</th>
+                <th>版本</th>
+                <th>今日</th>
+                <th>总下载</th>
+                <th>状态</th>
+              </tr>
+            </thead>
+            <tbody id="statsTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="details-grid">
+        <article class="panel">
+          <div class="panel-heading">
+            <h2>详情</h2>
+          </div>
+          <dl id="detailPanel" class="details"></dl>
+        </article>
+        <article class="panel">
+          <div class="panel-heading">
+            <h2>异常详情</h2>
+          </div>
+          <ul id="issuesList" class="issues-list"></ul>
+        </article>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
